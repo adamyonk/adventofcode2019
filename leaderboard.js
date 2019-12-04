@@ -3,7 +3,7 @@ import chalk from "chalk";
 import { fetchAOC } from "./fetchAOC.js";
 
 const gold = chalk.hex("#ffff66");
-const silver = chalk.hex("#666699");
+const silver = chalk.grey;
 const grey = chalk.grey.dim;
 const pink = chalk.hex("#f36");
 const cal = Array.from({ length: 25 });
@@ -14,14 +14,14 @@ const est = () => {
     date.getUTCFullYear(),
     date.getUTCMonth(),
     date.getUTCDate(),
-    date.getUTCHours()-5,
+    date.getUTCHours() - 5,
     date.getUTCMinutes(),
     date.getUTCSeconds()
   );
   return new Date(now_etc);
 };
 
-const daysAvailable = est().getDate();
+const daysAvailable = est().getUTCDate();
 
 (async () => {
   const response = await fetchAOC(
