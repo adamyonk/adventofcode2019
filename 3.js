@@ -120,7 +120,7 @@ const distance = input => {
       }
     }
 
-    const filename = "./3.html";
+    const filename = "./output/3.html";
     await fs.writeFile(filename, svg, "utf-8");
     // await exec(`open -a Safari file://${path.resolve(filename)}`);
 
