@@ -2,10 +2,9 @@
 import { getInput } from "./fetchAOC.js";
 import { promisify } from "util";
 import child_process from "child_process";
-import fs from "fs";
+import { promises as fs } from "fs";
 import path from "path";
 const exec = promisify(child_process.exec);
-const writeFile = promisify(fs.writeFile);
 
 const makeCoord = input => {
   const direction = input[0];
@@ -122,8 +121,8 @@ const distance = input => {
     }
 
     const filename = "./3.html";
-    await writeFile(filename, svg, "utf-8");
-    await exec(`open -a Safari file://${path.resolve(filename)}`);
+    await fs.writeFile(filename, svg, "utf-8");
+    // await exec(`open -a Safari file://${path.resolve(filename)}`);
 
     console.log("part 1:", Math.min(...intersections.map(i => i.manhattan)));
     console.log("part 2:", Math.min(...intersections.map(i => i.dist)));
