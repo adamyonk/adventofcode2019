@@ -15,10 +15,12 @@ const valid = (pass, part2) => {
     }
   }
   if (part2) {
-    const occurances = Object.values(string.split("").reduce((a, v) => {
-      a[v] = (a[v] || 0) + 1;
-      return a;
-    }, {}));
+    const occurances = Object.values(
+      string.split("").reduce((a, v) => {
+        a[v] = (a[v] || 0) + 1;
+        return a;
+      }, {})
+    );
     const valid = occurances.some(i => i === 2);
     if (!valid) {
       return false;

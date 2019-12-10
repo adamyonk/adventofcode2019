@@ -12,11 +12,10 @@ export const fetchAOC = path => {
 
 export const getInput = async day => {
   let data;
-  const file = `./input/${day}.input`
+  const file = `./input/${day}.input`;
   try {
-    data = await fs.readFile(file, { encoding: 'utf-8' });
-  } catch (e) {
-  }
+    data = await fs.readFile(file, { encoding: "utf-8" });
+  } catch (e) {}
   if (!data) {
     console.log("Fetching input data");
     const response = await fetchAOC(

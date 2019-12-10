@@ -14,7 +14,7 @@ function* permute(a, n = a.length) {
 }
 
 // Part 1
-(async () => {
+const one = async () => {
   try {
     const prog = (await getInput(7))
       .trim()
@@ -40,14 +40,14 @@ function* permute(a, n = a.length) {
     }
     const maxOut = Math.max(...Object.values(signals.bySeq));
 
-    console.log("part 1:", maxOut, signals.byOut[maxOut]);
+    console.log("part 1:", maxOut, signals.byOut[maxOut], "22012");
   } catch (e) {
     console.log(e);
   }
-})();
+};
 
 // Part 2
-(async () => {
+const two = async () => {
   try {
     const prog = (await getInput(7))
       .trim()
@@ -82,8 +82,13 @@ function* permute(a, n = a.length) {
     }
     const maxOut = Math.max(...Object.values(signals.bySeq));
 
-    console.log("part 2:", maxOut, signals.byOut[maxOut]);
+    console.log("part 2:", maxOut, signals.byOut[maxOut], "4039164");
   } catch (e) {
     console.log(e);
   }
+};
+
+(async () => {
+  await one();
+  await two();
 })();
